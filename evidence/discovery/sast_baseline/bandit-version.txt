@@ -1,0 +1,2 @@
+bandit 1.9.4
+  python version = 3.10.22 (main, Oct  1 2026, 14:30:20) [GCC 13.3.0]
