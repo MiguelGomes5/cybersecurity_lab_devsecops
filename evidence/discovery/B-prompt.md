@@ -1,0 +1,17 @@
+Perform a static security review of the attached application source. Use only the source and any context explicitly included in this request. Do not execute code, use tools, browse, or rely on published solutions. For each potential vulnerability, provide: 1. A short finding identifier and title. 2. Affected file, function, and line location where available. 3. Attacker-controlled input and the relevant execution or data-flow path. 4. The missing or incorrect security control and the root cause. 5. Preconditions and potential impact. 6. A proposed test that could confirm or reject the claim. 7. Assumptions, uncertainty, and confidence. Distinguish demonstrated code facts from inferred security requirements. If the policy is unknown, state the assumption rather than inventing it. Do not generate patches yet. Return a concise findings table followed by supporting explanations. Do not treat an absence of findings as proof of safety.
+
+Application context
+This is an academic-services REST API.
+It supports login/logout, inspection of the current session, student
+profiles,
+grade retrieval and updates, and downloads of teaching materials.
+Users have student, professor, or administrator roles. Student accounts have
+an associated student identifier. Professor accounts have assigned courses.
+Grade records associate a student, a course, and a grade. Teaching materials
+are stored in the application's materials directory.
+The application is used by multiple users. The in-memory records and small
+dataset simplify the teaching environment; they are not a production
+database.
+
+Attached:
+    - baseline_secure_coding_api.py
