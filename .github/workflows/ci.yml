@@ -10,7 +10,7 @@ permissions:
   packages: write
 
 env:
-  IMAGE_NAME: ghcr.io/${{ github.repository }}/secure-coding-api
+  IMAGE_NAME: ghcr.io/miguelgomes5/cybersecurity_lab_devsecops/secure-coding-api
 
 jobs:
   test:
