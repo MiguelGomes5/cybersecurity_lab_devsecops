@@ -65,11 +65,24 @@ jobs:
           if-no-files-found: error
           retention-days: 30
 
+  security-regression:
+    name: Selected security regression tests
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
+        with:
+          python-version: '3.10'
+      - name: Install application and test dependencies
+        run: python -m pip install -r requirements.txt
+      - name: Run security tests
+        run: python -m pytest -v tests_security
+
 
   build:
     name: Build and test Docker image
     runs-on: ubuntu-latest
-    needs: [test, sast]
+    needs: [test, sast, security-regression]
 
     steps:
       - name: Checkout repository
